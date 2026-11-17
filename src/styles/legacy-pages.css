@@ -1,0 +1,127 @@
+/* 既存ページ（URR 公開ページ群）が使う旧クラス名の暫定対応。ページ再構築で撤去する。 */
+
+@layer components {
+  .shell {
+    @apply mx-auto w-[min(1120px,calc(100vw-2rem))] pt-5 pb-16;
+  }
+
+  .topbar {
+    @apply mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center;
+  }
+
+  .brand {
+    @apply inline-flex items-center gap-3 font-bold no-underline;
+  }
+
+  .brand-mark {
+    @apply grid size-10 place-items-center rounded-lg bg-hero text-hero-foreground;
+  }
+
+  .topbar-nav {
+    @apply inline-flex flex-wrap items-center gap-2;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border bg-card px-4 py-2 text-muted-foreground no-underline;
+  }
+
+  .pill[data-active="true"] {
+    @apply border-primary bg-primary text-primary-foreground;
+  }
+
+  .page {
+    @apply grid gap-5;
+  }
+
+  .hero {
+    @apply rounded-xl bg-hero p-6 text-hero-foreground sm:p-12;
+  }
+
+  .card {
+    @apply rounded-xl border bg-card p-5 text-card-foreground;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex rounded-full bg-hero-foreground/15 px-3 py-1 text-sm font-bold;
+  }
+
+  .shell h1 {
+    @apply max-w-[14ch] text-4xl leading-tight font-bold tracking-tight sm:text-6xl;
+  }
+
+  .shell h2 {
+    @apply text-2xl leading-tight font-bold tracking-tight;
+  }
+
+  .shell p {
+    @apply text-muted-foreground;
+  }
+
+  .shell p a {
+    @apply underline underline-offset-2;
+  }
+
+  .shell .hero-copy > p {
+    @apply text-hero-foreground/80;
+  }
+
+  .hero-copy {
+    @apply grid max-w-2xl gap-4;
+  }
+
+  .cta-row {
+    @apply mt-2 flex flex-wrap gap-3;
+  }
+
+  .button {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full border border-transparent px-5 py-3 font-bold no-underline;
+  }
+
+  .button-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .button-secondary {
+    @apply border-border bg-card text-card-foreground;
+  }
+
+  .hero .button-primary {
+    @apply bg-hero-foreground text-hero;
+  }
+
+  .grid.two {
+    @apply grid-cols-1 gap-4 md:grid-cols-2;
+  }
+
+  .card-list {
+    @apply grid list-none gap-4 p-0;
+  }
+
+  .card-list li {
+    @apply border-t pt-4 first:border-t-0 first:pt-0;
+  }
+
+  .mini-label {
+    @apply mb-1 block text-xs tracking-wider text-muted-foreground uppercase;
+  }
+
+  .route-preview {
+    @apply mt-4 grid gap-2;
+  }
+
+  .route-chip {
+    @apply inline-flex w-fit max-w-full rounded-lg bg-muted px-3 py-2 font-mono text-sm text-foreground;
+  }
+
+  .section-heading {
+    @apply mb-4 grid gap-1.5;
+  }
+
+  .footer {
+    @apply mt-8 grid gap-1 text-sm text-muted-foreground;
+  }
+
+  .footer-translation {
+    @apply text-[0.9rem];
+  }
+}

@@ -1,3 +1,5 @@
+import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { resolvePublicSiteOrigin } from "./config/resolve-site-origin.mjs";
 
@@ -10,4 +12,8 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   compressHTML: true,
+  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

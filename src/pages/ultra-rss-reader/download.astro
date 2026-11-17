@@ -1,11 +1,11 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import AppPageLinks from "../../components/AppPageLinks.astro";
 import {
   ultraRssReaderPageMapItems,
   ultraRssReaderReleasesUrl,
   ultraRssReaderRoutes,
 } from "../../data/ultra-rss-reader";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "support@jey3dayo.net";
 
@@ -23,7 +23,8 @@ const availabilityItems = [
   {
     label: "配布状況の変動",
     body: "download availability は release 状況に応じて変わる可能性があります。このページでは固定文言を置きすぎない方針です。",
-    bodyEn: "Download availability may change with release status, so this page intentionally keeps the copy conservative.",
+    bodyEn:
+      "Download availability may change with release status, so this page intentionally keeps the copy conservative.",
   },
 ];
 
@@ -31,17 +32,20 @@ const safetyItems = [
   {
     label: "最新状況",
     body: "最新版の公開有無は、このページの静的文面ではなく GitHub Releases 側で確認してください。",
-    bodyEn: "For the latest public availability, rely on GitHub Releases rather than static text on this page.",
+    bodyEn:
+      "For the latest public availability, rely on GitHub Releases rather than static text on this page.",
   },
   {
     label: "困ったとき",
     body: "欲しい build が見つからない、あるいは install で詰まる場合は support 窓口へ連絡してください。",
-    bodyEn: "If you cannot find the build you need or run into installation trouble, please contact support.",
+    bodyEn:
+      "If you cannot find the build you need or run into installation trouble, please contact support.",
   },
   {
     label: "privacy も確認",
     body: "配布前に privacy や feed content policy の要点を確認したい場合は privacy page を参照してください。",
-    bodyEn: "If you want to review privacy and feed content behavior first, see the privacy page as well.",
+    bodyEn:
+      "If you want to review privacy and feed content behavior first, see the privacy page as well.",
   },
 ];
 ---

@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import AppPageLinks from "../../components/AppPageLinks.astro";
 import { ultraRssReaderPageMapItems, ultraRssReaderRoutes } from "../../data/ultra-rss-reader";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "support@jey3dayo.net";
 
@@ -14,7 +14,8 @@ const overviewItems = [
   {
     label: "よくある相談",
     body: "同期、フィード追加、Web Preview、ログ確認まわりの問い合わせを想定しています。",
-    bodyEn: "Common topics include sync issues, adding feeds, Web Preview, and troubleshooting with logs.",
+    bodyEn:
+      "Common topics include sync issues, adding feeds, Web Preview, and troubleshooting with logs.",
   },
   {
     label: "英語対応",
@@ -32,7 +33,8 @@ const contactItems = [
   {
     label: "利用中の設定",
     body: "Local feeds か FreshRSS か、どのアカウントで起きたかを書いてください。",
-    bodyEn: "Tell us whether the issue happened with Local feeds or FreshRSS, and which account was affected.",
+    bodyEn:
+      "Tell us whether the issue happened with Local feeds or FreshRSS, and which account was affected.",
   },
   {
     label: "症状の説明",
@@ -60,7 +62,8 @@ const quickChecks = [
   {
     label: "Web Preview",
     body: "一部のページはアプリ内表示に対応しません。再試行するか、外部ブラウザで開いて確認してください。",
-    bodyEn: "Some pages cannot be shown in the in-app view. Retry once or open them in your external browser.",
+    bodyEn:
+      "Some pages cannot be shown in the in-app view. Retry once or open them in your external browser.",
   },
   {
     label: "ログ確認",
@@ -73,12 +76,14 @@ const faqItems = [
   {
     label: "どんなアプリですか",
     body: "Ultra RSS Reader は desktop-first の RSS reader で、3 ペイン UI、全文検索、ショートカット、OPML export に対応しています。",
-    bodyEn: "Ultra RSS Reader is a desktop-first RSS reader with a three-pane UI, full-text search, shortcuts, and OPML export.",
+    bodyEn:
+      "Ultra RSS Reader is a desktop-first RSS reader with a three-pane UI, full-text search, shortcuts, and OPML export.",
   },
   {
     label: "どのアカウント種類をサポートしていますか",
     body: "公開ソースから確認できる範囲では Local RSS/Atom feeds と FreshRSS がサポート対象です。",
-    bodyEn: "Based on the public source, supported account types are Local RSS/Atom feeds and FreshRSS.",
+    bodyEn:
+      "Based on the public source, supported account types are Local RSS/Atom feeds and FreshRSS.",
   },
   {
     label: "購読一覧をバックアップできますか",
@@ -88,7 +93,8 @@ const faqItems = [
   {
     label: "Web Preview が開けないときは",
     body: "アプリ内表示に向かないページがあります。エラー時は再試行するか、外部ブラウザ導線を使ってください。",
-    bodyEn: "Some pages are not compatible with Web Preview. Retry or use the external browser route.",
+    bodyEn:
+      "Some pages are not compatible with Web Preview. Retry or use the external browser route.",
   },
 ];
 
@@ -106,7 +112,8 @@ const privacyItems = [
   {
     label: "通信上の注意",
     body: "Reader の remote images や Web Preview は、publisher 側ホストへの通信を発生させる場合があります。",
-    bodyEn: "Remote images in Reader mode and Web Preview may still contact publisher-controlled hosts.",
+    bodyEn:
+      "Remote images in Reader mode and Web Preview may still contact publisher-controlled hosts.",
   },
 ];
 
@@ -114,7 +121,8 @@ const openQuestions = [
   {
     label: "公開配布の最新版",
     body: "公開 download page は用意していますが、最新版の availability は固定文言ではなく GitHub Releases 基準で確認する運用です。",
-    bodyEn: "The public download page is now available, but current release availability is still expected to be checked on GitHub Releases.",
+    bodyEn:
+      "The public download page is now available, but current release availability is still expected to be checked on GitHub Releases.",
   },
   {
     label: "専用 privacy page",
@@ -124,7 +132,8 @@ const openQuestions = [
   {
     label: "公開リリース前提の文言",
     body: "GitHub Releases では `v0.5.0` が Latest で、その後の `v0.6.0` 以降は Draft が並んでいます。機能説明は広めに書きつつ、公開済み導線は断定しすぎない方針にしています。",
-    bodyEn: "On GitHub Releases, `v0.5.0` is the latest non-draft release and later versions are still drafts, so public copy stays intentionally conservative.",
+    bodyEn:
+      "On GitHub Releases, `v0.5.0` is the latest non-draft release and later versions are still drafts, so public copy stays intentionally conservative.",
   },
 ];
 ---
@@ -293,9 +302,9 @@ const openQuestions = [
   .support-meta-item,
   .privacy-item {
     padding: 0.95rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--muted);
   }
 
   .privacy-grid {

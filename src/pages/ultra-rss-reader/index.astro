@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import AppPageLinks from "../../components/AppPageLinks.astro";
 import { ultraRssReaderPageMapItems, ultraRssReaderRoutes } from "../../data/ultra-rss-reader";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "support@jey3dayo.net";
 
@@ -32,12 +32,14 @@ const supportItems = [
   {
     label: "トラブルシュート",
     body: "support page では、バージョン、OS、利用中アカウント、ログ確認の案内をまとめています。",
-    bodyEn: "The support page explains what to send, including app version, OS, account type, and logs.",
+    bodyEn:
+      "The support page explains what to send, including app version, OS, account type, and logs.",
   },
   {
     label: "プライバシー要点",
     body: "認証情報は OS keyring に保存され、privacy の要点は support page と privacy page から確認できます。",
-    bodyEn: "Credentials are stored in the OS keyring, and key privacy notes are available from the support and privacy pages.",
+    bodyEn:
+      "Credentials are stored in the OS keyring, and key privacy notes are available from the support and privacy pages.",
   },
 ];
 ---
