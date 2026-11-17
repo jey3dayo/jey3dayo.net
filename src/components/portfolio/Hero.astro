@@ -8,6 +8,10 @@ import SnsIcon from "./SnsIcon.astro";
 
 const ctaClass = cn(buttonVariants({ variant: "hero", size: "touch" }));
 const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "rounded-full");
+const iconShadow =
+  "[filter:drop-shadow(0_0_2px_rgb(0_0_0/0.9))_drop-shadow(0_0_8px_rgb(0_0_0/0.6))]";
+const textShadow =
+  "[text-shadow:0_0_2px_rgb(0_0_0/0.9),0_1px_3px_rgb(0_0_0/0.8),0_0_12px_rgb(0_0_0/0.6)]";
 ---
 
 <header class="relative isolate overflow-hidden bg-hero text-hero-foreground">
@@ -20,26 +24,20 @@ const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "r
     quality={85}
     loading="eager"
     fetchpriority="high"
-    class="absolute inset-0 -z-20 size-full object-cover object-bottom"
+    class="absolute bottom-0 left-0 -z-20 h-[max(100%,62rem)] w-full object-cover object-bottom"
   />
-  <div
-    aria-hidden="true"
-    class="absolute inset-0 -z-10 bg-linear-to-b from-hero/80 via-hero/72 to-hero/80 lg:from-hero/30 lg:via-hero/28 lg:to-hero/38 dark:from-hero/80 dark:via-hero/70 dark:to-hero/75 dark:lg:from-hero/45 dark:lg:via-hero/38 dark:lg:to-hero/48"
-  >
-  </div>
-  <div aria-hidden="true" class="absolute inset-0 -z-10 hidden bg-linear-to-r from-hero/45 to-hero/0 to-80% lg:block"></div>
-  <div class="mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-    <p class="hero-enter [--hero-i:0] inline-flex rounded-full bg-hero/70 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
-    <h1 class="hero-enter [--hero-i:0] mt-5 text-4xl font-bold tracking-tight sm:text-6xl">Junya Nakazato</h1>
-    <p class="hero-enter [--hero-i:1] mt-2 text-xl font-medium sm:text-2xl">Web Engineer / Tech Lead</p>
-    <p class="hero-enter [--hero-i:2] mt-5 max-w-xl text-base leading-relaxed">沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。</p>
-    <div class="hero-enter [--hero-i:3] mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+  <div class="mx-auto w-full max-w-5xl px-4 pt-24 pb-20 sm:px-6 sm:pt-28 sm:pb-24">
+    <p class={cn("hero-enter [--hero-i:0] text-sm font-medium", textShadow)}>Naha, Okinawa — Japan</p>
+    <h1 class={cn("hero-enter [--hero-i:0] mt-3 text-4xl font-bold tracking-tight sm:mt-5 sm:text-6xl", textShadow)}>Junya Nakazato</h1>
+    <p class={cn("hero-enter [--hero-i:1] mt-2 text-xl font-medium sm:text-2xl", textShadow)}>Web Engineer / Tech Lead</p>
+    <p class={cn("hero-enter [--hero-i:2] mt-3 max-w-xl sm:mt-5 text-base leading-relaxed", textShadow)}>沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。</p>
+    <div class="hero-enter [--hero-i:3] mt-6 flex sm:mt-8 flex-wrap items-center gap-x-6 gap-y-4">
       <a class={ctaClass} href="#works">Works を見る</a>
       <ul class="flex flex-wrap gap-2">
         {snsLinks.map(({ id, label, href }) => (
           <li>
             <a class={snsClass} href={href} aria-label={label} target="_blank" rel="noopener noreferrer">
-              <SnsIcon id={id} class="size-5" />
+              <SnsIcon id={id} class={iconShadow + " size-5"} />
             </a>
           </li>
         ))}
