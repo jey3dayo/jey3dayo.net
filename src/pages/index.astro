@@ -1,80 +1,24 @@
 ---
-import AppPageLinks from "../components/AppPageLinks.astro";
-import {
-  ultraRssReaderNamespaceItem,
-  ultraRssReaderPageMapItems,
-  ultraRssReaderPublicPaths,
-  ultraRssReaderRoutes,
-} from "../data/ultra-rss-reader";
+import About from "../components/portfolio/About.astro";
+import ContactFooter from "../components/portfolio/ContactFooter.astro";
+import Experience from "../components/portfolio/Experience.astro";
+import Hero from "../components/portfolio/Hero.astro";
+import Works from "../components/portfolio/Works.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="apps.jey3dayo.net"
-  description="Public support and product pages for apps.jey3dayo.net."
+  title="Junya Nakazato — Web Engineer / Tech Lead"
+  description="沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。"
   currentPath="/"
   lang="ja"
+  variant="bare"
 >
-  <section class="hero">
-    <div class="eyebrow">Public App Pages</div>
-    <div class="hero-copy">
-      <h1>公開アプリページの一覧</h1>
-      <p>
-        apps.jey3dayo.net では、各アプリの support、download、privacy などの公開ページを
-        アプリごとの path-based route でまとめて案内します。
-      </p>
-      <p class="translation">
-        apps.jey3dayo.net groups public support, download, and privacy pages for each app under path-based routes.
-      </p>
-      <div class="cta-row">
-        <a class="button button-primary" href={ultraRssReaderRoutes.landing}>Ultra RSS Reader</a>
-        <a class="button button-secondary" href={ultraRssReaderRoutes.support}>Support</a>
-      </div>
-    </div>
-    <div class="route-preview" aria-label="Route preview">
-      {ultraRssReaderPublicPaths.map((path) => (
-        <span class="route-chip">{path}</span>
-      ))}
-    </div>
-  </section>
-
-  <section class="grid two">
-    <div class="card">
-      <div class="section-heading">
-        <h2>このサイトの役割</h2>
-        <p>まずは公開ページとして必要な導線を、小さく分かりやすく保つことを優先しています。</p>
-        <p class="translation">The goal is to keep public app pages small, clear, and easy to maintain.</p>
-      </div>
-      <ul class="card-list">
-        <li>
-          <span class="mini-label">公開導線</span>
-          <p>アプリごとに landing、support、download、privacy を分けて追加できる構成です。</p>
-        </li>
-        <li>
-          <span class="mini-label">現在の対象</span>
-          <p>Ultra RSS Reader の公開ページ群が最初の実装対象です。</p>
-        </li>
-        <li>
-          <span class="mini-label">運用方針</span>
-          <p>固定文言で断定しにくい情報は、support や download から一次確認先へ誘導します。</p>
-        </li>
-      </ul>
-    </div>
-
-    <AppPageLinks
-      title="公開ページ一覧"
-      description="アプリごとに path を分けて、公開導線を小さく育てていく前提です。"
-      items={[
-        ultraRssReaderNamespaceItem,
-        ...ultraRssReaderPageMapItems,
-      ]}
-    />
-  </section>
+  <Hero />
+  <main class="mx-auto flex w-full max-w-5xl flex-col gap-16 px-4 py-14 sm:px-6">
+    <Works />
+    <About />
+    <Experience />
+  </main>
+  <ContactFooter />
 </BaseLayout>
-
-<style>
-  .translation {
-    margin-top: 0.35rem;
-    font-size: 0.96rem;
-  }
-</style>

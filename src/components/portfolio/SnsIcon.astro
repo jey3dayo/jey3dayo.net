@@ -1,0 +1,15 @@
+---
+import type { snsLinks } from "../../data/sns";
+import { brandIconPaths } from "../../lib/brand-icons";
+
+interface Props {
+  id: (typeof snsLinks)[number]["id"];
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class={className}>
+  <path d={brandIconPaths[id]} />
+</svg>

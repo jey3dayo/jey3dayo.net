@@ -1,0 +1,20 @@
+---
+import { formatPeriod, loadExperience } from "../../lib/experience";
+
+const experience = await loadExperience();
+---
+
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading" class="text-2xl font-bold tracking-tight">Experience</h2>
+  <ol class="mt-6 ml-1.5 border-l">
+    {experience.map(({ id, data }) => (
+      <li class="relative pb-8 pl-6 last:pb-0">
+        <span class="absolute top-2 -left-[5px] size-2.5 rounded-full bg-primary" aria-hidden="true"></span>
+        <p class="font-mono text-sm text-muted-foreground">{formatPeriod(data.start, data.end)}</p>
+        <h3 class="mt-1 text-lg font-bold">{data.role}</h3>
+        <p class="font-medium">{data.company}</p>
+        <p class="mt-2 text-muted-foreground">{data.description}</p>
+      </li>
+    ))}
+  </ol>
+</section>
