@@ -1,0 +1,23 @@
+---
+import { whoamiEntries } from "../../data/whoami";
+import { toWhoamiLines } from "../../lib/whoami-lines";
+
+const lines = toWhoamiLines(whoamiEntries);
+---
+
+<section aria-labelledby="about-heading">
+  <h2 id="about-heading" class="text-2xl font-bold tracking-tight">About</h2>
+  <p class="mt-4 text-base leading-relaxed">仕事では業務システムの設計・実装・レビューと、採用・メンタリングを担当。</p>
+  <figure class="mt-6 overflow-hidden rounded-xl border bg-card text-card-foreground">
+    <figcaption class="border-b bg-muted px-4 py-2 font-mono text-sm text-muted-foreground">whoami.json</figcaption>
+    <div class="px-4 py-4 font-mono text-base leading-relaxed break-words">
+      <div class="text-muted-foreground">{"{"}</div>
+      {lines.map(({ key, value }) => (
+        <div class="pl-[4ch] -indent-[2ch]">
+          <span class="text-primary">{key}</span><span class="text-muted-foreground">: </span><span>{value}</span>
+        </div>
+      ))}
+      <div class="text-muted-foreground">{"}"}</div>
+    </div>
+  </figure>
+</section>

@@ -9,9 +9,10 @@ interface Props {
   description: string;
   currentPath?: string;
   lang?: string;
+  variant?: "legacy" | "bare";
 }
 
-const { title, description, currentPath = "/", lang = "en" } = Astro.props;
+const { title, description, currentPath = "/", lang = "en", variant = "legacy" } = Astro.props;
 const canonical = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
 const noindex = shouldNoindex(publicSiteOriginFromEnv());
@@ -37,6 +38,9 @@ const noindex = shouldNoindex(publicSiteOriginFromEnv());
     <meta name="twitter:description" content={description} />
   </head>
   <body>
+    {variant === "bare" ? (
+      <slot />
+    ) : (
     <div class="shell">
       <header class="topbar">
         <a class="brand" href="/">
@@ -67,5 +71,6 @@ const noindex = shouldNoindex(publicSiteOriginFromEnv());
         <p class="footer-translation">Public app pages for support, downloads, and privacy information.</p>
       </footer>
     </div>
+    )}
   </body>
 </html>
