@@ -4,6 +4,14 @@
   "compatibility_date": "2026-04-13",
   "routes": [
     {
+      "pattern": "jey3dayo.net",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.jey3dayo.net",
+      "custom_domain": true
+    },
+    {
       "pattern": "apps.jey3dayo.net",
       "custom_domain": true
     }

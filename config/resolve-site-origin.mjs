@@ -1,4 +1,4 @@
-const DEFAULT_SITE_ORIGIN = "https://apps.jey3dayo.net";
+const DEFAULT_SITE_ORIGIN = "https://jey3dayo.net";
 
 /**
  * PUBLIC_SITE_ORIGIN が未設定・復号失敗（encrypted:）・不正 URL のときはデフォルトを返す。
