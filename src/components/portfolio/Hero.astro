@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import heroPhoto from "../../assets/hero/okinawa-sea.jpg";
 import { snsLinks } from "../../data/sns";
 import { cn } from "../../lib/utils";
 import { buttonVariants } from "../ui/button";
@@ -8,7 +10,23 @@ const ctaClass = buttonVariants({ variant: "hero", size: "touch" });
 const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "rounded-full");
 ---
 
-<header class="bg-hero text-hero-foreground">
+<header class="relative isolate overflow-hidden bg-hero text-hero-foreground">
+  <Image
+    src={heroPhoto}
+    alt=""
+    widths={[640, 1177]}
+    sizes="100vw"
+    format="webp"
+    quality={85}
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 size-full object-cover object-bottom"
+  />
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 bg-linear-to-b from-hero/85 via-hero/75 to-hero/90 dark:from-hero/90 dark:via-hero/85 dark:to-hero/95"
+  >
+  </div>
   <div class="mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
     <p class="inline-flex rounded-full bg-hero-foreground/15 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
     <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-6xl">Junya Nakazato</h1>
