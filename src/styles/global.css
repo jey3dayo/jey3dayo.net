@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "./legacy-pages.css";
 
 /* ライト/ダークは OS 設定のみに追従する（手動トグルなし）。Tailwind v4 の dark: は prefers-color-scheme を使う。 */
 

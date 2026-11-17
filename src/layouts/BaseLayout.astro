@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { ultraRssReaderRoutes } from "../data/ultra-rss-reader";
 import { publicSiteOriginFromEnv } from "../lib/resolve-public-site-origin";
 import { shouldNoindex } from "../lib/site-indexing";
 
@@ -9,10 +8,9 @@ interface Props {
   description: string;
   currentPath?: string;
   lang?: string;
-  variant?: "legacy" | "bare";
 }
 
-const { title, description, currentPath = "/", lang = "en", variant = "legacy" } = Astro.props;
+const { title, description, currentPath = "/", lang = "en" } = Astro.props;
 const canonical = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
 const noindex = shouldNoindex(publicSiteOriginFromEnv());
@@ -51,39 +49,6 @@ const ogImageAlt = "Junya Nakazato — Web Engineer / Tech Lead。沖縄の海�
     <slot name="head" />
   </head>
   <body>
-    {variant === "bare" ? (
-      <slot />
-    ) : (
-    <div class="shell">
-      <header class="topbar">
-        <a class="brand" href="/">
-          <span class="brand-mark">J</span>
-          <span>apps.jey3dayo.net</span>
-        </a>
-        <nav class="topbar-nav" aria-label="Primary">
-          <a class="pill" href="/">Home</a>
-          <a class="pill" href={ultraRssReaderRoutes.landing} data-active={currentPath === ultraRssReaderRoutes.landing}>
-            Ultra RSS Reader
-          </a>
-          <a class="pill" href={ultraRssReaderRoutes.support} data-active={currentPath === ultraRssReaderRoutes.support}>
-            Support
-          </a>
-          <a class="pill" href={ultraRssReaderRoutes.download} data-active={currentPath === ultraRssReaderRoutes.download}>
-            Download
-          </a>
-          <a class="pill" href={ultraRssReaderRoutes.privacy} data-active={currentPath === ultraRssReaderRoutes.privacy}>
-            Privacy
-          </a>
-        </nav>
-      </header>
-      <main class="page">
-        <slot />
-      </main>
-      <footer class="footer">
-        <p>support、download、privacy などの公開アプリページをまとめるサイトです。</p>
-        <p class="footer-translation">Public app pages for support, downloads, and privacy information.</p>
-      </footer>
-    </div>
-    )}
+    <slot />
   </body>
 </html>
