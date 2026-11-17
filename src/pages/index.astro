@@ -5,15 +5,19 @@ import Experience from "../components/portfolio/Experience.astro";
 import Hero from "../components/portfolio/Hero.astro";
 import Works from "../components/portfolio/Works.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { personJsonLd } from "../lib/person-json-ld";
+
+const siteUrl = new URL("/", Astro.site);
 ---
 
 <BaseLayout
   title="Junya Nakazato — Web Engineer / Tech Lead"
-  description="沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。"
+  description="那覇在住のWebエンジニア Junya Nakazato が、業務システムの設計・実装と個人開発のアプリを紹介するポートフォリオです。"
   currentPath="/"
   lang="ja"
   variant="bare"
 >
+  <script type="application/ld+json" slot="head" set:html={personJsonLd(siteUrl)} />
   <Hero />
   <main class="mx-auto flex w-full max-w-5xl flex-col gap-16 px-4 py-14 sm:px-6">
     <Works />

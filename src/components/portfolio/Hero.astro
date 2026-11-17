@@ -6,7 +6,7 @@ import { cn } from "../../lib/utils";
 import { buttonVariants } from "../ui/button";
 import SnsIcon from "./SnsIcon.astro";
 
-const ctaClass = buttonVariants({ variant: "hero", size: "touch" });
+const ctaClass = cn(buttonVariants({ variant: "hero", size: "touch" }));
 const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "rounded-full");
 ---
 
@@ -24,11 +24,12 @@ const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "r
   />
   <div
     aria-hidden="true"
-    class="absolute inset-0 -z-10 bg-linear-to-b from-hero/85 via-hero/75 to-hero/90 dark:from-hero/90 dark:via-hero/85 dark:to-hero/95"
+    class="absolute inset-0 -z-10 bg-linear-to-b from-hero/80 via-hero/72 to-hero/80 lg:from-hero/30 lg:via-hero/28 lg:to-hero/38 dark:from-hero/80 dark:via-hero/70 dark:to-hero/75 dark:lg:from-hero/45 dark:lg:via-hero/38 dark:lg:to-hero/48"
   >
   </div>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 hidden bg-linear-to-r from-hero/45 to-hero/0 to-80% lg:block"></div>
   <div class="mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-    <p class="inline-flex rounded-full bg-hero-foreground/15 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
+    <p class="inline-flex rounded-full bg-hero/70 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
     <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-6xl">Junya Nakazato</h1>
     <p class="mt-2 text-xl font-medium sm:text-2xl">Web Engineer / Tech Lead</p>
     <p class="mt-5 max-w-xl text-base leading-relaxed">沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。</p>
