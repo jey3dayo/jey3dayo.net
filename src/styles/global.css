@@ -91,18 +91,25 @@
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(var(--hero-y, 0px));
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
   }
 }
 
 .hero-enter {
   animation: hero-enter 300ms var(--ease-out-strong) both;
-  animation-delay: calc(var(--hero-i) * 60ms);
+  animation-delay: var(--hero-delay, 0ms);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-enter {
-    animation: none;
+    animation-name: hero-fade;
+    animation-delay: 0ms;
   }
 }
 
