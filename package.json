@@ -23,6 +23,7 @@
     "env:run": "dotenvx run --overload -f .env --"
   },
   "devDependencies": {
+    "@astrojs/mdx": "^8.1.6",
     "@astrojs/react": "^7.1.9",
     "@biomejs/biome": "^2.6.8",
     "@dotenvx/dotenvx": "^2.38.2",
