@@ -19,7 +19,28 @@ const whoamiSchema = z.strictObject({
 
 export type Whoami = z.infer<typeof whoamiSchema>;
 
-export const whoamiKeys = [
+// キーの漏れ・重複は引数が never になる型エラー（"not assignable to never"）として検出する
+type HasDuplicate<T extends readonly string[]> = T extends readonly [
+  infer Head extends string,
+  ...infer Rest extends string[],
+]
+  ? Head extends Rest[number]
+    ? true
+    : HasDuplicate<Rest>
+  : false;
+
+type ExhaustiveKeys<K extends readonly (keyof Whoami)[]> = [
+  Exclude<keyof Whoami, K[number]>,
+] extends [never]
+  ? HasDuplicate<K> extends true
+    ? never
+    : K
+  : never;
+
+const defineKeyOrder = <const K extends readonly (keyof Whoami)[]>(keys: ExhaustiveKeys<K>): K =>
+  keys;
+
+export const whoamiKeys = defineKeyOrder([
   "name",
   "job",
   "live",
@@ -31,7 +52,7 @@ export const whoamiKeys = [
   "ops",
   "tools",
   "love",
-] as const satisfies readonly (keyof Whoami)[];
+]);
 
 export const whoami: Whoami = whoamiSchema.parse(raw);
 
