@@ -1,4 +1,6 @@
-const siteOrigin = import.meta.env.PUBLIC_SITE_ORIGIN ?? "https://apps.jey3dayo.net";
+import { publicSiteOriginFromEnv } from "../lib/resolve-public-site-origin";
+
+const siteOrigin = publicSiteOriginFromEnv();
 
 export function GET() {
   const sitemapUrl = new URL("/sitemap.xml", siteOrigin).toString();

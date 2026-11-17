@@ -78,7 +78,7 @@ Useful local commands:
 
 Committed:
 
-- `.env` after encryption with `dotenvx`
+- `.env` with `dotenvx` (Cloudflare credentials stay encrypted; `PUBLIC_*` values are plaintext)
 
 Local-only:
 
@@ -89,11 +89,11 @@ It is separate from `.env.keys | dotfiles`.
 
 Current variables are intentionally minimal:
 
-- `PUBLIC_SITE_ORIGIN`
-- `PUBLIC_SUPPORT_EMAIL`
-- `PUBLIC_DEFAULT_APP`
-- `CLOUDFLARE_ACCOUNT_ID` (optional)
-- `CLOUDFLARE_API_TOKEN` (optional)
+- `PUBLIC_SITE_ORIGIN` (plaintext in `.env`)
+- `PUBLIC_SUPPORT_EMAIL` (plaintext in `.env`)
+- `PUBLIC_DEFAULT_APP` (plaintext in `.env`)
+- `CLOUDFLARE_ACCOUNT_ID` (optional, encrypted in `.env`)
+- `CLOUDFLARE_API_TOKEN` (optional, encrypted in `.env`)
 
 For local work, `dotenvx run` reads `.env.keys` automatically.
 For CI or remote deploys, provide `DOTENV_PRIVATE_KEY` from `.env.keys` and keep `.env.keys` out of the deployed bundle.
