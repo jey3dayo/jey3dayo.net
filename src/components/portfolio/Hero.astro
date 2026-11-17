@@ -29,11 +29,11 @@ const snsClass = cn(buttonVariants({ variant: "heroOutline", size: "icon" }), "r
   </div>
   <div aria-hidden="true" class="absolute inset-0 -z-10 hidden bg-linear-to-r from-hero/45 to-hero/0 to-80% lg:block"></div>
   <div class="mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-    <p class="inline-flex rounded-full bg-hero/70 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
-    <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-6xl">Junya Nakazato</h1>
-    <p class="mt-2 text-xl font-medium sm:text-2xl">Web Engineer / Tech Lead</p>
-    <p class="mt-5 max-w-xl text-base leading-relaxed">沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。</p>
-    <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+    <p class="hero-enter [--hero-i:0] inline-flex rounded-full bg-hero/70 px-3 py-1 text-sm font-medium">Naha, Okinawa — Japan</p>
+    <h1 class="hero-enter [--hero-i:0] mt-5 text-4xl font-bold tracking-tight sm:text-6xl">Junya Nakazato</h1>
+    <p class="hero-enter [--hero-i:1] mt-2 text-xl font-medium sm:text-2xl">Web Engineer / Tech Lead</p>
+    <p class="hero-enter [--hero-i:2] mt-5 max-w-xl text-base leading-relaxed">沖縄・那覇在住。業務システムの設計・実装と、趣味で個人開発もしています。</p>
+    <div class="hero-enter [--hero-i:3] mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
       <a class={ctaClass} href="#works">Works を見る</a>
       <ul class="flex flex-wrap gap-2">
         {snsLinks.map(({ id, label, href }) => (
