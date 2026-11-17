@@ -2,10 +2,10 @@
   "name": "apps-site",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@12.21.0",
   "engines": {
     "node": "24.14.1",
-    "pnpm": "10.33.0"
+    "pnpm": "12.21.0"
   },
   "scripts": {
     "dev": "dotenvx run --overload -f .env -- astro dev",
@@ -23,12 +23,12 @@
     "env:run": "dotenvx run --overload -f .env --"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.6.3",
-    "@dotenvx/dotenvx": "^1.75.1",
-    "@types/node": "^24.19.2",
-    "astro": "^6.4.8",
-    "markdownlint-cli2": "^0.24.0",
-    "typescript": "^5.9.3",
-    "wrangler": "^4.154.0"
+    "@biomejs/biome": "^2.6.8",
+    "@dotenvx/dotenvx": "^2.38.2",
+    "@types/node": "^26.6.6",
+    "astro": "^7.4.12",
+    "markdownlint-cli2": "^0.24.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.163.0"
   }
 }

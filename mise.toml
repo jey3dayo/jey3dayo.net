@@ -18,7 +18,7 @@ MD_EXCLUDE_WORKTREES = "#**/.worktrees/**"
 
 [tools]
 node = "24.14.1"
-pnpm = "10.33.0"
+pnpm = "12.21.0"
 "pipx:yamllint" = "latest"
 gh-actions-lock = { version = "0.4.0", bin = "gh-actions-lock" }
 
