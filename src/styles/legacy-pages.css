@@ -57,7 +57,11 @@
     @apply text-muted-foreground;
   }
 
-  .shell .hero p {
+  .shell p a {
+    @apply underline underline-offset-2;
+  }
+
+  .shell .hero-copy > p {
     @apply text-hero-foreground/80;
   }
 
@@ -115,5 +119,9 @@
 
   .footer {
     @apply mt-8 grid gap-1 text-sm text-muted-foreground;
+  }
+
+  .footer-translation {
+    @apply text-[0.9rem];
   }
 }

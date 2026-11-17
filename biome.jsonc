@@ -41,26 +41,14 @@
   },
   "overrides": [
     {
-      // Biome は frontmatter だけを解析し template 側の参照を見ないため、使用中の import / 変数を未使用と誤判定する
+      // Biome は frontmatter だけを解析し template 側の参照を見ないため、使用中の import / 変数を未使用と誤判定する。
+      // その代償として本物の未使用変数・import も見逃す（html.experimentalFullSupportEnabled なら検出できる）。
       "includes": ["**/*.astro"],
       "linter": {
         "rules": {
           "correctness": {
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
-          }
-        }
-      }
-    },
-    {
-      // shadcn CLI の生成コード（セミコロンなし・import * as React・import 未整列）を再生成のたびに直さない
-      "includes": ["src/components/ui/**"],
-      "formatter": { "enabled": false },
-      "assist": { "actions": { "source": { "organizeImports": "off" } } },
-      "linter": {
-        "rules": {
-          "style": {
-            "useImportType": "off"
           }
         }
       }
