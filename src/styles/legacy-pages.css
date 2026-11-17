@@ -45,19 +45,19 @@
     @apply mb-4 inline-flex rounded-full bg-hero-foreground/15 px-3 py-1 text-sm font-bold;
   }
 
-  h1 {
+  .shell h1 {
     @apply max-w-[14ch] text-4xl leading-tight font-bold tracking-tight sm:text-6xl;
   }
 
-  h2 {
+  .shell h2 {
     @apply text-2xl leading-tight font-bold tracking-tight;
   }
 
-  p {
+  .shell p {
     @apply text-muted-foreground;
   }
 
-  .hero p {
+  .shell .hero p {
     @apply text-hero-foreground/80;
   }
 
@@ -85,12 +85,8 @@
     @apply bg-hero-foreground text-hero;
   }
 
-  .grid {
-    @apply gap-4;
-  }
-
   .grid.two {
-    @apply grid-cols-1 md:grid-cols-2;
+    @apply grid-cols-1 gap-4 md:grid-cols-2;
   }
 
   .card-list {
