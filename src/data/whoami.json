@@ -3,11 +3,11 @@
   "job": "Web Engineer, Tech Lead",
   "live": "Naha, Okinawa, Japan",
   "agents": ["Claude", "Codex", "Muse", "T3 Code", "Grok Bot", "herdr"],
-  "frontend": ["TypeScript", "React", "shadcn/ui", "Radix", "Material UI"],
-  "backend": ["TypeScript", "Next.js", "Go", "Rails", "Java", "PHP", "Spring Framework"],
+  "frontend": ["TypeScript", "React", "Next.js", "Tailwind CSS", "shadcn/ui"],
+  "backend": ["TypeScript", "Next.js", "Node.js", "Go"],
   "desktop": ["Tauri"],
-  "infrastructure": ["AWS", "ECS", "CloudFront", "Docker", "Cloudflare", "k3s"],
-  "ops": ["GitHub Actions", "CircleCI", "New Relic", "Datadog", "Sentry"],
+  "infrastructure": ["AWS", "Cloudflare", "Docker", "k3s"],
+  "ops": ["GitHub Actions", "Datadog", "Sentry"],
   "tools": ["Neovim", "mise", "Ghostty"],
-  "love": ["Coffee", "League of Legends", "GUILTY GEAR XX ΛCORE and Xrd"]
+  "love": ["Coffee", "Granblue Fantasy", "League of Legends", "GUILTY GEAR XX ΛCORE and Xrd"]
 }
