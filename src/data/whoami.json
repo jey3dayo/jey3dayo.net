@@ -1,0 +1,13 @@
+{
+  "name": "Junya Nakazato",
+  "job": "Web Engineer, Tech Lead",
+  "live": "Naha, Okinawa, Japan",
+  "agents": ["Claude", "Codex", "Muse", "T3 Code", "Grok Bot", "herdr"],
+  "frontend": ["TypeScript", "React", "shadcn/ui", "Radix", "Material UI"],
+  "backend": ["TypeScript", "Next.js", "Go", "Rails", "Java", "PHP", "Spring Framework"],
+  "desktop": ["Tauri"],
+  "infrastructure": ["AWS", "ECS", "CloudFront", "Docker", "Cloudflare", "k3s"],
+  "ops": ["GitHub Actions", "CircleCI", "New Relic", "Datadog", "Sentry"],
+  "tools": ["Neovim", "mise", "Ghostty"],
+  "love": ["Coffee", "League of Legends", "GUILTY GEAR XX ΛCORE and Xrd"]
+}
