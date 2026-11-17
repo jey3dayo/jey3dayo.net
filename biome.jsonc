@@ -5,9 +5,10 @@
       "package.json",
       "tsconfig.json",
       "astro.config.mjs",
+      "components.json",
       "wrangler.jsonc",
-      "src/**/*.css",
-      "src/**/*.ts"
+      "config/**",
+      "src/**"
     ]
   },
   "formatter": {
@@ -19,6 +20,11 @@
       "quoteStyle": "double",
       "semicolons": "always",
       "trailingCommas": "es5"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
     }
   },
   "json": {
@@ -33,6 +39,33 @@
       }
     }
   },
+  "overrides": [
+    {
+      // Biome は frontmatter だけを解析し template 側の参照を見ないため、使用中の import / 変数を未使用と誤判定する
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      // shadcn CLI の生成コード（セミコロンなし・import * as React・import 未整列）を再生成のたびに直さない
+      "includes": ["src/components/ui/**"],
+      "formatter": { "enabled": false },
+      "assist": { "actions": { "source": { "organizeImports": "off" } } },
+      "linter": {
+        "rules": {
+          "style": {
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ],
   "vcs": {
     "enabled": true,
     "clientKind": "git",

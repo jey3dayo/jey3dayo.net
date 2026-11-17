@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { ultraRssReaderRoutes } from "../data/ultra-rss-reader";
+import { publicSiteOriginFromEnv } from "../lib/resolve-public-site-origin";
+import { shouldNoindex } from "../lib/site-indexing";
 
 interface Props {
   title: string;
@@ -12,6 +14,7 @@ interface Props {
 const { title, description, currentPath = "/", lang = "en" } = Astro.props;
 const canonical = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
+const noindex = shouldNoindex(publicSiteOriginFromEnv());
 ---
 
 <!doctype html>
@@ -21,6 +24,7 @@ const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     {canonical && <link rel="canonical" href={canonical} />}
     <meta property="og:site_name" content="apps.jey3dayo.net" />
     <meta property="og:type" content="website" />
