@@ -1,7 +1,6 @@
 # apps-site
 
-`apps-site` is a small Astro site for public app pages under `apps.jey3dayo.net`.
-It is optimized for support-first routes such as `/ultra-rss-reader/support`, while keeping room for future download and privacy pages under the same host.
+`apps-site` is a static portfolio site built with Astro.
 
 ## Why this stack
 
@@ -12,24 +11,9 @@ It is optimized for support-first routes such as `/ultra-rss-reader/support`, wh
 ## Routes
 
 - `/`
-- `/ultra-rss-reader/`
-- `/ultra-rss-reader/support`
-
-Future routes are expected to live beside the existing page:
-
-- `/ultra-rss-reader/download`
-- `/ultra-rss-reader/privacy`
-
-The intended extension pattern is:
-
-```text
-src/pages/
-  <app-slug>/
-    index.astro
-    support.astro
-    download.astro
-    privacy.astro
-```
+- `/robots.txt`
+- `/sitemap.xml`
+- `/404` (served as `404.html`)
 
 ## Setup
 
@@ -90,8 +74,8 @@ It is separate from `.env.keys | dotfiles`.
 Current variables are intentionally minimal:
 
 - `PUBLIC_SITE_ORIGIN` (plaintext in `.env`)
-- `PUBLIC_SUPPORT_EMAIL` (plaintext in `.env`)
-- `PUBLIC_DEFAULT_APP` (plaintext in `.env`)
+- `PUBLIC_SUPPORT_EMAIL` (plaintext in `.env`; not referenced by the code today, `.env` cleanup is tracked separately)
+- `PUBLIC_DEFAULT_APP` (plaintext in `.env`; not referenced by the code today, `.env` cleanup is tracked separately)
 - `CLOUDFLARE_ACCOUNT_ID` (optional, encrypted in `.env`)
 - `CLOUDFLARE_API_TOKEN` (optional, encrypted in `.env`)
 
@@ -131,4 +115,3 @@ Intentionally not imported:
 - Clerk
 - D1 / Drizzle
 - product-specific auth, database, or observability setup
-- UI libraries and other heavy dependencies that do not help support pages

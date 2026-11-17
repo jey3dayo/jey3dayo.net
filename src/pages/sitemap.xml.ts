@@ -1,10 +1,8 @@
-import { ultraRssReaderPublicPaths } from "../data/ultra-rss-reader";
-
 import { publicSiteOriginFromEnv } from "../lib/resolve-public-site-origin";
 
 const siteOrigin = publicSiteOriginFromEnv();
 
-const pages = ["/", ...ultraRssReaderPublicPaths];
+const pages = ["/"];
 
 export function GET() {
   const body = `<?xml version="1.0" encoding="UTF-8"?>
