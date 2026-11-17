@@ -1,6 +1,9 @@
 # apps-site `.env.keys` and 1Password
 
-This repository keeps `.env` encrypted with `dotenvx` and keeps `.env.keys` local-only.
+This repository keeps sensitive values in `.env` encrypted with `dotenvx` and keeps `.env.keys` local-only.
+
+`PUBLIC_*` variables are stored in plaintext in the committed `.env` so CI (including fork and Dependabot PRs without `DOTENV_PRIVATE_KEY`) can build the static site without decrypting public configuration.
+Only Cloudflare credentials remain encrypted.
 
 The canonical 1Password document for this repo is:
 

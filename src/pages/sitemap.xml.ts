@@ -1,6 +1,8 @@
 import { ultraRssReaderPublicPaths } from "../data/ultra-rss-reader";
 
-const siteOrigin = import.meta.env.PUBLIC_SITE_ORIGIN ?? "https://apps.jey3dayo.net";
+import { publicSiteOriginFromEnv } from "../lib/resolve-public-site-origin";
+
+const siteOrigin = publicSiteOriginFromEnv();
 
 const pages = ["/", ...ultraRssReaderPublicPaths];
 
