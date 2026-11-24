@@ -1,36 +1,38 @@
-# apps-site `.env.keys` and 1Password
+# `.env.keys` と 1Password の運用
 
-This repository keeps sensitive values in `.env` encrypted with `dotenvx` and keeps `.env.keys` local-only.
+このリポジトリでは、機密情報を含む `.env` を `dotenvx` で暗号化してコミットし、復号鍵である `.env.keys` はローカル専用（Git 管理外）としています。
 
-`PUBLIC_*` variables are stored in plaintext in the committed `.env` so CI (including fork and Dependabot PRs without `DOTENV_PRIVATE_KEY`) can build the static site without decrypting public configuration.
-Only Cloudflare credentials remain encrypted.
+`DOTENV_PRIVATE_KEY` が利用できない環境（Fork や Dependabot の PR など）でも、`PUBLIC_SITE_ORIGIN` が未設定または未復号（`encrypted:`）の場合は `config/resolve-site-origin.mjs` がデフォルト値（`https://jey3dayo.net`）へフォールバックするため、静的サイトのビルド自体は通る設計です。
 
-The canonical 1Password document for this repo is:
+## 1Password の保管場所
 
-- vault: `Dotfiles Automation`
-- title: `.env.keys | apps-site`
+このリポジトリに対応する正規の 1Password ドキュメントは次のとおりです（前身リポジトリ名のまま維持しています）。
 
-This is separate from the dotfiles document `.env.keys | dotfiles`.
-Do not overwrite or rename the dotfiles item when working on `apps-site`.
+- Vault: `Dotfiles Automation`
+- タイトル: `.env.keys | apps-site`
 
-## Restore flow
+`dotfiles` リポジトリ用の `.env.keys | dotfiles` とは別管理です。作業時に誤って上書き・リネームしないでください。
 
-If you need to restore `.env.keys` on a new machine or shell:
+## 復元手順
 
-1. Fetch the document named `.env.keys | apps-site` from the `Dotfiles Automation` vault.
-2. Save it as the local repo file `.env.keys`.
-3. Run `pnpm env:decrypt` before editing `.env`.
+新しいマシンやシェルで `.env.keys` を復元する手順です。
 
-## Update flow
+1. 1Password の `Dotfiles Automation` ボールトから `.env.keys | apps-site` を取得する。
+2. リポジトリ直下に `.env.keys` として保存する。
+3. `.env` を編集する前に `pnpm env:decrypt` を実行する。
+4. 編集が終わったら `pnpm env:encrypt` で再暗号化する。
 
-If `.env.keys` is regenerated for this repo:
+## 更新手順
 
-1. Update the existing 1Password document `.env.keys | apps-site`.
-2. Do not create a second active document with the same title.
-3. Verify the stored document can be retrieved again after the update.
+このリポジトリ用に `.env.keys` を再生成した場合の手順です。
 
-## Security notes
+1. 既存の 1Password ドキュメント `.env.keys | apps-site` を更新する。
+2. 同名のアクティブなドキュメントを重複作成しない。
+3. 更新後、保存されたドキュメントを再取得できることを確認する。
+4. GitHub Actions のシークレット `DOTENV_PRIVATE_KEY` も必要に応じて更新する。
 
-- Never paste `.env.keys` contents into chat, docs, commit messages, or shell history.
-- Never summarize or copy `DOTENV_PRIVATE_KEY` into repository documentation.
-- Keep `.env.keys` out of version control and out of deployment bundles.
+## セキュリティ上の注意
+
+- `.env.keys` の内容をチャット、ドキュメント、コミットメッセージ、シェル履歴に貼り付けない。
+- `DOTENV_PRIVATE_KEY` を要約・転記してリポジトリ内ドキュメントへ記載しない。
+- `.env.keys` はバージョン管理およびデプロイバンドルに含めない。
