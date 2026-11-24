@@ -1,24 +1,14 @@
 # TODO
 
-## Done
+## 未対応
 
-- [x] Astro static scaffold is in place
-- [x] `dotenvx` scripts and `.env.keys` flow are set up
-- [x] `pnpm run build` passes
-- [x] `pnpm run cf:deploy:dry-run` passes
-- [x] Real Cloudflare deploy is finished on `apps-site.j138cm.workers.dev`
-- [x] Decide Cloudflare auth mode for deploy
-  - Chosen: shared `dotenvx` key + encrypted Cloudflare token/account values
-- [x] Fix `.env` so Wrangler does not receive empty or malformed Cloudflare auth values
-- [x] Run `pnpm exec wrangler whoami` and confirm authentication works
-- [x] Run `pnpm run cf:deploy`
-- [x] Confirm the Worker is created successfully in Cloudflare
-- [x] Attach `apps.jey3dayo.net` or the intended route to the Worker
-- [x] Open the deployed URL and verify the top page responds
-- [x] Add crawl/share metadata support in the shared layout
-- [x] Add `robots.txt` and `sitemap.xml`
+- [ ] `.env` から未使用の変数 `PUBLIC_SUPPORT_EMAIL`・`PUBLIC_DEFAULT_APP` を削除する（`pnpm env:decrypt` → 編集 → `pnpm env:encrypt`）
+- [ ] （任意）`PUBLIC_SITE_ORIGIN` を平文にするか、現行どおり暗号化＋フォールバック運用とするか方針を確定する
 
-## Next
+## 完了済み（参考）
 
-- [ ] Clean up the unused `.env` variables `PUBLIC_SUPPORT_EMAIL` and `PUBLIC_DEFAULT_APP` (`pnpm env:decrypt`, edit, then `pnpm env:encrypt`)
-- [ ] Remove the now-unused `tw-animate-css` from devDependencies
+- [x] Astro + Cloudflare Workers Static Assets での基盤構築と `dotenvx` 運用整備
+- [x] ポートフォリオ刷新（Hero / Works / About / Experience / Contact・404 ページ）
+- [x] `jey3dayo.net` / `www.jey3dayo.net` へのカスタムドメイン切り替え
+- [x] SEO（OGP・JSON-LD・`robots.txt`・`sitemap.xml`）および a11y / モーション対応
+- [x] 未使用パッケージ `tw-animate-css` の削除
