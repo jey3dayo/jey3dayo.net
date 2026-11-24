@@ -5,10 +5,10 @@ Astro と Cloudflare Workers Static Assets で構築した個人ポートフォ�
 ## 技術スタック
 
 - **フレームワーク**: Astro（静的出力 / Content Collections / MDX）
-- **UI**: Tailwind CSS v4 / React / shadcn/ui / Lucide Icons
-- **デプロイ**: Cloudflare Workers Static Assets（Wrangler）
+- **UI**: Tailwind CSS v4 / class-variance-authority（cva）
+- **デプロイ**: Cloudflare Workers Static Assets（Wrangler / `public/_headers`）
 - **環境変数**: dotenvx（暗号化した `.env` をリポジトリ管理）
-- **開発ツール / 品質管理**: mise / pnpm / Biome / TypeScript / markdownlint-cli2 / yamllint / gh-actions-lock
+- **開発ツール / 品質管理**: mise / pnpm / Biome / TypeScript / `node --test` / markdownlint-cli2 / yamllint / gh-actions-lock
 
 ## ルート構成
 
@@ -60,6 +60,7 @@ pnpm env:encrypt
 - `pnpm cf:deploy:dry-run` - 公開せずに Wrangler のバンドル・設定を検証
 - `pnpm deploy` - `build` と `cf:deploy` を連続実行
 - `pnpm check` - `build` と `cf:deploy:dry-run` を連続実行
+- `pnpm test` - Node 標準テストランナーで単体テストを実行
 - `pnpm lint` - Biome で lint チェック
 - `pnpm format` - Biome で自動整形
 - `pnpm env:encrypt` - `.env` を暗号化
@@ -72,9 +73,10 @@ pnpm env:encrypt
 
 - `mise run format` - Biome と markdownlint で自動整形
 - `mise run lint` - 型チェック / Biome / Markdown / YAML をまとめて検証
+- `mise run test` - 単体テストを実行
 - `mise run check:quick` - 型チェックと Biome のみ高速実行
-- `mise run check` - 整形 + lint + ビルド + Cloudflare dry-run
-- `mise run ci` - CI と同等の検証（lint + ビルド + Cloudflare dry-run）
+- `mise run check` - 整形 + lint + テスト + ビルド + Cloudflare dry-run
+- `mise run ci` - CI と同等の検証（lint + テスト + ビルド + Cloudflare dry-run）
 - `mise run cf:whoami` - `dotenvx` 経由で Cloudflare の認証状態を確認
 - `mise run actions-lock:generate` - `.github/workflows/actions.lock` を再生成・検証
 - `mise run actions-lock:verify` - `actions.lock` の整合性を検証

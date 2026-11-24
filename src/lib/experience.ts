@@ -1,8 +1,7 @@
 import { getCollection } from "astro:content";
+import { formatPeriod } from "./experience-format";
 
-export function formatPeriod(start: number, end: number | null): string {
-  return `${start} — ${end ?? "NOW"}`;
-}
+export { formatPeriod };
 
 export async function loadExperience() {
   const entries = await getCollection("experience");

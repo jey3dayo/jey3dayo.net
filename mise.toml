@@ -67,6 +67,10 @@ run = "gh-actions-lock --verify"
 description = "dotenvx経由でCloudflare認証状態を確認"
 run = "pnpm exec dotenvx run --overload -f .env -- wrangler whoami"
 
+[tasks.test]
+description = "Node テストランナーによる単体テスト"
+run = "pnpm run test"
+
 [tasks."build:ci"]
 description = "CI向けの静的ビルド"
 run = "pnpm run build"
@@ -81,8 +85,8 @@ run = "pnpm run cf:deploy:dry-run"
 # ========================================
 
 [tasks.check]
-description = "ローカル確認（format + lint + build + Cloudflare dry-run）"
-depends = ["format", "lint", "build:ci", "deploy:dry-run"]
+description = "ローカル確認（format + lint + test + build + Cloudflare dry-run）"
+depends = ["format", "lint", "test", "build:ci", "deploy:dry-run"]
 
 [tasks.lint]
 description = "型・Biome・Markdown・YAML の lint"
@@ -93,8 +97,8 @@ description = "クイックチェック（型 + Biome）"
 depends = ["lint:types", "lint:biome"]
 
 [tasks.ci]
-description = "CI 相当のチェック（lint + build + Cloudflare dry-run）"
-depends = ["lint", "build:ci", "deploy:dry-run"]
+description = "CI 相当のチェック（lint + test + build + Cloudflare dry-run）"
+depends = ["lint", "test", "build:ci", "deploy:dry-run"]
 
 [tasks.deploy]
 description = "Cloudflare Workers にデプロイ"
