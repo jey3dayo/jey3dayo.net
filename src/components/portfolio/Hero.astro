@@ -2,8 +2,8 @@
 import { Image } from "astro:assets";
 import heroPhoto from "../../assets/hero/okinawa-sea.jpg";
 import { snsLinks } from "../../data/sns";
+import { buttonVariants } from "../../lib/button-variants";
 import { cn } from "../../lib/utils";
-import { buttonVariants } from "../ui/button";
 import SnsIcon from "./SnsIcon.astro";
 
 const ctaClass = cn(buttonVariants({ variant: "hero", size: "touch" }));

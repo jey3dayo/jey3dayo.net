@@ -20,7 +20,7 @@ export function personJsonLd(siteUrl: URL): string {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Junya Nakazato",
-    jobTitle: "Web Engineer",
+    jobTitle: "Web Engineer / Tech Lead",
     address: {
       "@type": "PostalAddress",
       addressLocality: "那覇市",

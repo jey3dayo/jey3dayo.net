@@ -10,7 +10,7 @@ interface Props {
   lang?: string;
 }
 
-const { title, description, currentPath = "/", lang = "en" } = Astro.props;
+const { title, description, currentPath = "/", lang = "ja" } = Astro.props;
 const canonical = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
 const noindex = shouldNoindex(publicSiteOriginFromEnv());
@@ -23,6 +23,8 @@ const ogImageAlt = "Junya Nakazato — Web Engineer / Tech Lead。沖縄の海�
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f4a36" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a3326" media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}

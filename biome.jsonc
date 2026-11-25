@@ -5,7 +5,6 @@
       "package.json",
       "tsconfig.json",
       "astro.config.mjs",
-      "components.json",
       "wrangler.jsonc",
       "config/**",
       "src/**"
